@@ -8,9 +8,6 @@
 			"id": "ryne-batch-delete@bennnnzo.com"
 		}
 	},
-	"permissions": [
-		"scripting"
-	],
 	"host_permissions": [
 		"https://ryne.ai/tools/ryne-chat*",
 		"https://ryne.ai/tools/humanizer*"
