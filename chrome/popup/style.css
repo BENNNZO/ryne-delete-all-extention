@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: red;
+    --background-color: rgb(8, 8, 8);
+    --secondary-background-color: rgb(25, 25, 25);
+}
+
+body {
+    background: var(--background-color);
+    width: 250px;
+    color: white;
+}
+
+.refresh-button {
+    background: var(--secondary-background-color);
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 25px 0px;
+}
+
+.refresh-button img {
+    height: 100px;
+    margin: 0 auto;
+    filter: invert(1);
+}
