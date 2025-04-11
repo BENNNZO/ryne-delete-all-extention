@@ -4,6 +4,7 @@ This browser extension adds a button that allows you to easily delete all your c
 ## Installation
 ### Web Store
 ChromeYou can install the Chrome version of this extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/ryne-batch-delete/djpnjpfjeakffgfnhfdnpheofebplolc?authuser=0&hl=en).
+
 FirefoxYou can install the Firefox version of this extension from the [Firefox Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/ryne-batch-delete/).
 
 ### Source Code
