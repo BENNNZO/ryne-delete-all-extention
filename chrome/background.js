@@ -8,5 +8,23 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
                 })
             }
         })
+        
+        chrome.storage.sync.get(["autoFocus"]).then(res => {
+            if (res.autoFocus) {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: ["/scripts/autoFocus.js"]
+                })
+            }
+        })
+        
+        chrome.storage.sync.get(["styleChanges"]).then(res => {
+            if (res.styleChanges) {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: ["/scripts/styleChanges.js"]
+                })
+            }
+        })
     }
 })
