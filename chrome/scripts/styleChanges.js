@@ -1,3 +1,12 @@
+function setupDashboardStyles() {
+    if (document.getElementById("dashboard-styles")) return
+    
+    const style = document.createElement("style")
+    style.id = "dashboard-styles"
+    style.textContent = `
+    `
+}
+
 function setupHumanizerStyles() {
     if (document.getElementById("humanizer-styles")) return
     
@@ -228,6 +237,7 @@ function main() {
 
         setupChatStyles()
         setupHumanizerStyles()
+        setupDashboardStyles()
     }
 }
 
