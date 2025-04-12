@@ -2,6 +2,7 @@
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
 const toggleHistoryDeleteButton = document.getElementById("toggle-history-delete-button")
+const toggleHistoryDeleteButtonSlider = document.getElementById("toggle-history-delete-button-slider")
 
 // STORAGE STATES
 chrome.storage.sync.get(["historyDeleteButton"]).then(res => {
@@ -24,8 +25,12 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
 // History Delete Button
-toggleHistoryDeleteButton.addEventListener("change", async (e) => {
-    const state = e.target.checked
-    chrome.storage.sync.set({ historyDeleteButton: state })
+toggleHistoryDeleteButtonSlider.addEventListener("click", () => {
+    toggleHistoryDeleteButton.checked = !toggleHistoryDeleteButton.checked
 })
 
+toggleHistoryDeleteButton.addEventListener("change", async (e) => {
+    chrome.storage.sync.set({ historyDeleteButton: e.target.checked })
+})
+
+// TODO: need to do something about these really long variable names
