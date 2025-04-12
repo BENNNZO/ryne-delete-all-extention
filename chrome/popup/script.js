@@ -1,11 +1,11 @@
 /* ---------------------------------- INIT ---------------------------------- */
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
-const toggleHistoryDel = document.getElementById("toggle-del-button")
+const toggleHistoryDeleteButton = document.getElementById("toggle-history-delete-button")
 
 // STORAGE STATES
-chrome.storage.sync.get(["toggleDelButton"]).then(res => {
-    toggleHistoryDel.checked = res.toggleDelButton || false;
+chrome.storage.sync.get(["historyDeleteButton"]).then(res => {
+    toggleHistoryDeleteButton.checked = res.historyDeleteButton || false;
 })
 
 //FUNCTIONS
@@ -24,21 +24,8 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
 // History Delete Button
-toggleHistoryDel.addEventListener("change", async (e) => {
+toggleHistoryDeleteButton.addEventListener("change", async (e) => {
     const state = e.target.checked
-
-    // update cloud storage with new state
-    chrome.storage.sync.set({ toggleDelButton: state })
-
-    
-    let tabs = await chrome.tabs.query({})
-    tabs.forEach(tab => {
-        if (tab.url.includes("https://ryne.ai/") && e.target.checked) {
-            chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                files: ["/scripts/content.js"]
-            })
-        }
-    })
+    chrome.storage.sync.set({ historyDeleteButton: state })
 })
 
