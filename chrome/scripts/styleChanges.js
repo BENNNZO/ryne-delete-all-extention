@@ -12,6 +12,8 @@ function setupStyles() {
             border-top: 1px solid rgba(255, 255, 255, 0.25);
         }
 
+
+
         /* fix nav bar */
         header {
             border: none !important;
@@ -19,10 +21,14 @@ function setupStyles() {
             padding-right: 4px;
         }
 
+
+
         /* remove intro welcome hero */
         .chat-messages + div {
             display: none;
         }
+
+
 
         /* add gap to message column */
         .chat-messages {
@@ -31,12 +37,15 @@ function setupStyles() {
             gap: 10px;
         }
 
+
+
         /* style ai answers */
         .chat-bot {
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
             margin-bottom: 0;
-            flex-direction: column
+            flex-direction: column;
+            padding: 15px 20px;
         }
 
         .chat-bot > :first-child {
@@ -58,6 +67,20 @@ function setupStyles() {
             margin-left: 0;
         }
 
+        .chat-icons > *:not(:last-child) {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-icons > :nth-child(2), .chat-icons > :nth-child(3) {
+            display: none;
+        }
+
+        .chat-icons > :nth-child(1), .chat-icons > :nth-child(5) {
+            padding: 5px 8px;
+        }
+
+
+
         /* style user prompts */
         .chat:not(.chat-bot) {
             border-radius: 15px;
@@ -69,19 +92,18 @@ function setupStyles() {
         }
 
         .chat:not(.chat-bot) > div:nth-of-type(1) {
-            /* remove user profile image */
-            display: none;
+            display: none; /* remove user profile image */
         }
 
         .chat:not(.chat-bot) > div:nth-of-type(2) {
-            /* position user prompt text */
-            margin-left: auto;
+            margin-left: auto; /* position user prompt text */
         }
 
         .chat:not(.chat-bot) > div:nth-of-type(2) > div:nth-of-type(1) {
-            /* remove random margin element */
-            display: none;
+            display: none; /* remove random margin element */
         }
+
+
 
         /* fix buggy code sections in ai answers */
         pre {
