@@ -1,15 +1,16 @@
 function setupAutoFocus() {
-    const textAreaChat = document.querySelector('textarea[placeholder="Ask ryne..."]')
-    const textAreaHumanizer = document.querySelector('div[contenteditable="true"]')
-
-    if (!textAreaChat && !textAreaHumanizer) return
-
-    if (textAreaChat) {
-        textAreaChat.setAttribute("autoFocus", "")
-        textAreaChat.focus()
-    } else {
+    if (location.href.includes("ryne-chat")) {
+        const textAreaHumanizer = document.querySelector('div[contenteditable="true"]')
+        if (!textAreaHumanizer) return
+        
         textAreaHumanizer.setAttribute("autoFocus", "")
         textAreaHumanizer.focus()
+    } else if (location.href.includes("humanizer")) {
+        const textAreaChat = document.querySelector('textarea[placeholder="Ask ryne..."]')
+        if (!textAreaChat) return
+
+        textAreaChat.setAttribute("autoFocus", "")
+        textAreaChat.focus()
     }
 }
 
