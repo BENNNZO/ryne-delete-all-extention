@@ -54,7 +54,7 @@ function setupObserver() {
 }
 
 function main() {
-    if (window__historyCleanerInitialized) {
+    if (window.__historyCleanerInitialized) {
         return
     } else {
         console.log("[Ryne Toolkit] Initializing History Cleaner...")
