@@ -1,8 +1,8 @@
 function injectStyles() {
-    if (document.querySelector("#delete-all-button-styles")) return
+    if (document.getElementById("delete-all-button-styles")) return
 
     const style = document.createElement("style")
-    style.id = "#delete-all-button-styles"
+    style.id = "delete-all-button-styles"
     style.textContent = `
         .delete-all-button {
             background: black; 
@@ -58,6 +58,18 @@ function main() {
     
     const observer = getObserver()
     observer.observe(document.body, { childList: true })
+
+    chrome.runtime.onMessage.addListener(msg => {
+        switch (msg.stopScript) {
+            case ("historyDel"):
+                console.log("turning off history button")
+                break
+            default:
+                console.log("unknown msg")
+                console.log(msg)
+                break
+        }
+    })
 }
 
 main()
