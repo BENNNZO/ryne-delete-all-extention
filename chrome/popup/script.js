@@ -27,10 +27,7 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 // History Delete Button
 toggleHistoryDeleteButtonSlider.addEventListener("click", () => {
     toggleHistoryDeleteButton.checked = !toggleHistoryDeleteButton.checked
-})
-
-toggleHistoryDeleteButton.addEventListener("change", async (e) => {
-    chrome.storage.sync.set({ historyDeleteButton: e.target.checked })
+    chrome.storage.sync.set({ historyDeleteButton: toggleHistoryDeleteButton.checked })
 })
 
 // TODO: need to do something about these really long variable names
