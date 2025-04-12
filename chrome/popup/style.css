@@ -51,13 +51,24 @@ body {
     height: 100%;
     border: none;
     cursor: pointer;
-    padding: 10px;
     background: transparent;
     border-left: 1px solid var(--border-color);
 }
 
 .refresh-button img {
+    padding: 12px;
     height: 100%;
+}
+
+/* --------------------------------- FOOTER --------------------------------- */
+
+.footer {
+    background: var(--secondary-background-color);
+    padding: 10px;
+}
+
+.footer a {
+    color: deepskyblue;
 }
 
 /* ------------------------------ TOGGLE SWITCH ----------------------------- */
