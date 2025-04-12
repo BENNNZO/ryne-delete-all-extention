@@ -1,8 +1,8 @@
 function injectStyles() {
-    if (document.querySelector("#delete-all-button-styles")) return
+    if (document.getElementById("delete-all-button-styles")) return
 
     const style = document.createElement("style")
-    style.id = "#delete-all-button-styles"
+    style.id = "delete-all-button-styles"
     style.textContent = `
         .delete-all-button {
             background: black; 

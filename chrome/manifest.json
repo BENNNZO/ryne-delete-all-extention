@@ -3,6 +3,11 @@
 	"description": "Adds a button that allows you to easily delete all your chats from Ryne's humanizer and chat pages",
 	"version": "1.0.0",
 	"manifest_version": 3,
+	"permissions": [
+		"scripting",
+		"storage",
+		"tabs"
+	],
 	"host_permissions": [
 		"https://ryne.ai/tools/ryne-chat*",
 		"https://ryne.ai/tools/humanizer*"
@@ -13,15 +18,10 @@
 		"48": "images/icon-48.png",
 		"128": "images/icon-128.png"
 	},
-	"content_scripts": [
-		{
-			"js": [
-				"scripts/content.js"
-			],
-			"matches": [
-				"https://ryne.ai/tools/ryne-chat*",
-				"https://ryne.ai/tools/humanizer*"
-			]
-		}
-	]
+	"action": {
+		"default_popup": "/popup/index.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	}
 }
