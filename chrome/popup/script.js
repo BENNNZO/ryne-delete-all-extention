@@ -49,12 +49,12 @@ switchHistoryCleaner.addEventListener("click", () => {
 
 switchStyleChanges.addEventListener("click", () => {
     inputStyleChanges.checked = !inputStyleChanges.checked
-    chrome.storage.sync.set({ historyCleaner: inputStyleChanges.checked })
+    chrome.storage.sync.set({ styleChanges: inputStyleChanges.checked })
 })
 
 switchAutoFocus.addEventListener("click", () => {
     inputAutoFocus.checked = !inputAutoFocus.checked
-    chrome.storage.sync.set({ historyCleaner: inputAutoFocus.checked })
+    chrome.storage.sync.set({ autoFocus: inputAutoFocus.checked })
 })
 
 // TODO: need to do something about these really long variable names
