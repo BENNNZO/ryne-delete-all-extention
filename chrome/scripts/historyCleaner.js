@@ -1,4 +1,4 @@
-function injectStyles() {
+function setupStyles() {
     if (document.getElementById("delete-all-button-styles")) return
 
     const style = document.createElement("style")
@@ -61,7 +61,7 @@ function main() {
 
         window.window__historyCleanerInitialized = true
 
-        injectStyles()
+        setupStyles()
         setupObserver()
     }
 
