@@ -1,12 +1,14 @@
+// History Cleaner
+
 /* ---------------------------------- INIT ---------------------------------- */
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
-const toggleHistoryDeleteButton = document.getElementById("toggle-history-delete-button")
-const toggleHistoryDeleteButtonSlider = document.getElementById("toggle-history-delete-button-slider")
+const inputHistoryCleaner = document.getElementById("input-history-cleaner")
+const switchHistoryCleaner = document.getElementById("switch-history-cleaner")
 
 // STORAGE STATES
-chrome.storage.sync.get(["historyDeleteButton"]).then(res => {
-    toggleHistoryDeleteButton.checked = res.historyDeleteButton || false;
+chrome.storage.sync.get(["historyCleaner"]).then(res => {
+    inputHistoryCleaner.checked = res.historyCleaner || false;
 })
 
 //FUNCTIONS
@@ -25,9 +27,9 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
 // History Delete Button
-toggleHistoryDeleteButtonSlider.addEventListener("click", () => {
-    toggleHistoryDeleteButton.checked = !toggleHistoryDeleteButton.checked
-    chrome.storage.sync.set({ historyDeleteButton: toggleHistoryDeleteButton.checked })
+switchHistoryCleaner.addEventListener("click", () => {
+    inputHistoryCleaner.checked = !inputHistoryCleaner.checked
+    chrome.storage.sync.set({ historyCleaner: inputHistoryCleaner.checked })
 })
 
 // TODO: need to do something about these really long variable names
