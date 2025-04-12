@@ -11,6 +11,8 @@
     --background-color: rgb(8, 8, 8);
     --secondary-background-color: rgb(25, 25, 25);
 
+    --border-color: rgb(50, 50, 50);
+
     --toggle-on: rgb(95, 201, 132);
     --toggle-off: rgb(224, 79, 79);
 }
@@ -26,23 +28,36 @@ body {
 .divider {
     width: 100%;
     height: 1px;
-    background: rgb(50, 50, 50)
+    background: var(--border-color)
 }
 
-/* ----------------------------- REFRESH BUTTON ----------------------------- */
+/* --------------------------------- HEADER --------------------------------- */
+
+.header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    background: var(--secondary-background-color);
+}
+
+.header > h1 {
+    font-size: 20px;
+}
 
 .refresh-button {
-    background: var(--secondary-background-color);
-    width: 100%;
+    height: 100%;
     border: none;
     cursor: pointer;
-    padding: 25px 0px;
+    padding: 10px;
+    background: transparent;
+    border-left: 1px solid var(--border-color);
 }
 
 .refresh-button img {
-    height: 100px;
-    margin: 0 auto;
-    filter: invert(1);
+    height: 100%;
 }
 
 /* ------------------------------ TOGGLE SWITCH ----------------------------- */
