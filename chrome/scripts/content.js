@@ -58,22 +58,6 @@ function main() {
     
     const observer = getObserver()
     observer.observe(document.body, { childList: true })
-
-    chrome.runtime.onMessage.addListener(msg => {
-        switch (msg.stopScript) {
-            case ("historyDel"):
-                console.log("turning off history button")
-
-                observer.disconnect()
-                document.getElementById("delete-all-button-styles").remove()
-                
-                break
-            default:
-                console.log("unknown msg")
-                console.log(msg)
-                break
-        }
-    })
 }
 
 main()
