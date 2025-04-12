@@ -1,8 +1,20 @@
-function setupStyles() {
-    if (document.getElementById("style-changes-styles")) return
+function setupHumanizerStyles() {
+    if (document.getElementById("humanizer-styles")) return
 
     const style = document.createElement("style")
-    style.id = "style-changes-styles"
+    style.id = "humanizer-styles"
+    style.textContent = `
+
+    `
+
+    document.head.appendChild(style)
+}
+
+function setupChatStyles() {
+    if (document.getElementById("chat-styles")) return
+
+    const style = document.createElement("style")
+    style.id = "chat-styles"
     style.textContent = `
         /* fix input area */
         .chat-main-bottom {
@@ -132,7 +144,8 @@ function main() {
 
         window.__styleChangesInitialized = true
 
-        setupStyles()
+        setupChatStyles()
+        setupHumanizerStyles()
     }
 }
 
