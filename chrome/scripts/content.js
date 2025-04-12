@@ -63,6 +63,10 @@ function main() {
         switch (msg.stopScript) {
             case ("historyDel"):
                 console.log("turning off history button")
+
+                observer.disconnect()
+                document.getElementById("delete-all-button-styles").remove()
+                
                 break
             default:
                 console.log("unknown msg")

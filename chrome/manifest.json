@@ -24,7 +24,7 @@
 	"content_scripts": [
 		{
 			"js": [
-				"scripts/content.js"
+				"scripts/content2.js"
 			],
 			"matches": [
 				"https://ryne.ai/tools/ryne-chat*",
