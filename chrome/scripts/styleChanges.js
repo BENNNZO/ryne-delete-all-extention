@@ -36,10 +36,21 @@ function setupStyles() {
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
             margin-bottom: 0;
+            flex-direction: column
         }
 
         .chat-bot > :first-child {
+            position: static;
+        }
+
+        .chat-bot > :first-child img {
             display: none;
+        }
+
+        .chat-bot > :first-child div:nth-of-type(1) {
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .chat-bot > :nth-child(2) {
@@ -72,7 +83,7 @@ function setupStyles() {
             display: none;
         }
 
-        /* style code sections to remove wrapping issue */
+        /* fix buggy code sections in ai answers */
         pre {
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0 !important;
