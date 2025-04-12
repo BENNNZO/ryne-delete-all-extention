@@ -1,10 +1,92 @@
 function setupHumanizerStyles() {
     if (document.getElementById("humanizer-styles")) return
-
+    
     const style = document.createElement("style")
     style.id = "humanizer-styles"
     style.textContent = `
+        .humanizer-resizable {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(16px);
+        }
 
+        .humanizer-resizable > :nth-child(2) {
+            position: relative;
+            left: 1px;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), transparent);
+        }
+
+        .humanizer-editor-bottom-nav {
+            border-top: none;
+            height: 31px;
+        }
+
+        .humanizer-nav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(16px);
+            margin-left: 2px;
+            padding: 10px 20px 10px calc(20px + 0.5rem);
+            height: 60px;
+            border-radius: 0;
+        }
+
+        #humanizer-output {
+            margin-bottom: 0;
+        }
+
+        .humanizer-input div[contenteditable="true"], #humanizer-output {
+            height: calc(100% - 31px);
+            margin-left: 2px;
+        }
+
+        .humanizer-input div[contenteditable="true"]::before {
+            content: '';
+            position: fixed;
+            width: 50%;
+            height: 25px;
+            left: 0;
+            bottom: 31px;
+            background: linear-gradient(to bottom, transparent, black);
+            z-index: 1000;
+        }
+
+        #humanizer-output::before {
+            content: '';
+            position: fixed;
+            width: 50%;
+            height: 25px;
+            left: calc(50% + 2px);
+            bottom: 31px;
+            background: linear-gradient(to bottom, transparent, black);
+            z-index: 1000;
+        }
+
+        .humanizer-input div[contenteditable="true"]::after {
+            content: '';
+            position: fixed;
+            width: 50%;
+            height: 25px;
+            left: 0;
+            top: 60px;
+            background: linear-gradient(to bottom, black, transparent);
+            z-index: 1000;
+        }
+
+        #humanizer-output::after {
+            content: '';
+            position: fixed;
+            width: 50%;
+            height: 25px;
+            left: calc(50% + 2px);
+            top: 60px;
+            background: linear-gradient(to bottom, black, transparent);
+            z-index: 1000;
+        }
+
+        #humanizer-output span > div {
+            background: rgb(0, 0, 0);
+        }
     `
 
     document.head.appendChild(style)
