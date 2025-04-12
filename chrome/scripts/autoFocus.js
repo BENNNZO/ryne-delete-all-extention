@@ -1,9 +1,16 @@
 function setupAutoFocus() {
-    const textArea = document.querySelector('textarea[placeholder="Ask ryne..."]')
-    if (!textArea) return
+    const textAreaChat = document.querySelector('textarea[placeholder="Ask ryne..."]')
+    const textAreaHumanizer = document.querySelector('div[contenteditable="true"]')
 
-    textArea.setAttribute("autoFocus", "")
-    textArea.focus()
+    if (!textAreaChat && !textAreaHumanizer) return
+
+    if (textAreaChat) {
+        textAreaChat.setAttribute("autoFocus", "")
+        textAreaChat.focus()
+    } else {
+        textAreaHumanizer.setAttribute("autoFocus", "")
+        textAreaHumanizer.focus()
+    }
 }
 
 function setupObserver() {
