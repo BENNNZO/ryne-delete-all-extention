@@ -59,7 +59,7 @@ function main() {
     } else {
         console.log("[Ryne Toolkit] Initializing History Cleaner...")
 
-        window.window__historyCleanerInitialized = true
+        window.__historyCleanerInitialized = true
 
         setupStyles()
         setupObserver()
