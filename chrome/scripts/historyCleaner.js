@@ -41,7 +41,7 @@ function injectButton(target) {
     container.appendChild(button)
 }
 
-function getObserver() {
+function setupObserver() {
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
@@ -50,14 +50,21 @@ function getObserver() {
         })
     })
 
-    return observer
+    observer.observe(document.body, { childList: true })
 }
 
 function main() {
-    injectStyles()
-    
-    const observer = getObserver()
-    observer.observe(document.body, { childList: true })
+    if (window__historyCleanerInitialized) {
+        return
+    } else {
+        console.log("[Ryne Toolkit] Initializing History Cleaner...")
+
+        window.window__historyCleanerInitialized = true
+
+        injectStyles()
+        setupObserver()
+    }
+
 }
 
 main()
