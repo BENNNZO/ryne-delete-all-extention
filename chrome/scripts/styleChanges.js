@@ -4,7 +4,16 @@ function setupDashboardStyles() {
     const style = document.createElement("style")
     style.id = "dashboard-styles"
     style.textContent = `
+        main > section > :nth-child(4) > :first-child > :first-child {
+            display:none
+        }
+
+        main > section {
+            justify-content: center;
+        }
     `
+
+    document.head.appendChild(style)
 }
 
 function setupHumanizerStyles() {
