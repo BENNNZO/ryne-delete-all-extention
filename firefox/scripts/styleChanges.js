@@ -133,6 +133,11 @@ function setupChatStyles() {
             padding-right: 4px;
         }
 
+        /* this is purley because firefox is weird */
+        header + div {
+            top: 70px !important;
+        }
+
 
 
         /* remove intro welcome hero */
