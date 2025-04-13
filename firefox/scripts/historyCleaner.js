@@ -1,8 +1,8 @@
-function injectStyles() {
-    if (document.querySelector("#delete-all-button-styles")) return
+function setupStyles() {
+    if (document.getElementById("delete-all-button-styles")) return
 
     const style = document.createElement("style")
-    style.id = "#delete-all-button-styles"
+    style.id = "delete-all-button-styles"
     style.textContent = `
         .delete-all-button {
             background: black; 
@@ -22,6 +22,8 @@ function injectStyles() {
 }
 
 function injectButton(target) {
+    if (document.querySelector(".delete-all-button")) return
+
     const container = target.querySelector(".main-container-history > .mt-4")
     container.style = "display: flex; gap: 2px"
 
@@ -41,7 +43,7 @@ function injectButton(target) {
     container.appendChild(button)
 }
 
-function getObserver() {
+function setupObserver() {
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
@@ -50,14 +52,21 @@ function getObserver() {
         })
     })
 
-    return observer
+    observer.observe(document.body, { childList: true })
 }
 
 function main() {
-    injectStyles()
-    
-    const observer = getObserver()
-    observer.observe(document.body, { childList: true })
+    if (window.__historyCleanerInitialized) {
+        return
+    } else {
+        console.log("[Ryne Toolkit] Initializing History Cleaner...")
+
+        window.__historyCleanerInitialized = true
+
+        setupStyles()
+        setupObserver()
+    }
+
 }
 
 main()
