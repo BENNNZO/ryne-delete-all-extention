@@ -226,10 +226,13 @@ function setupChatStyles() {
 
         .chat:not(.chat-bot) > div:nth-of-type(2) {
             margin-left: auto; /* position user prompt text */
+            display: flex;
+            flex-direction: column;
+            align-items: end;
         }
 
         .chat:not(.chat-bot) > div:nth-of-type(2) > div:nth-of-type(1) {
-            display: none; /* remove random margin element */
+            margin-bottom: 0;
         }
 
 
