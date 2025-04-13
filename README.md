@@ -14,7 +14,7 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 
 ![Popup Window](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/popup.png)
 
-### Chat Page Updates (Before: top, After: bottom)
+### Chat Page Updates (Before: left, After: right)
 - Fixed bug were AI's code output would weirdly wrap and become unreadable. Now its simply output with a horizontal scrollbar
 - Removed the "What would you like to explore" content in the middle
 - Removed user's profile picture
