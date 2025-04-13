@@ -14,24 +14,24 @@ const inputAutoFocus = document.getElementById("input-auto-focus")
 const switchAutoFocus = document.getElementById("switch-auto-focus")
 
 // STORAGE STATES
-chrome.storage.sync.get(["historyCleaner"]).then(res => {
+browser.storage.sync.get(["historyCleaner"]).then(res => {
     inputHistoryCleaner.checked = res.historyCleaner || false;
 })
 
-chrome.storage.sync.get(["styleChanges"]).then(res => {
+browser.storage.sync.get(["styleChanges"]).then(res => {
     inputStyleChanges.checked = res.styleChanges || false;
 })
 
-chrome.storage.sync.get(["autoFocus"]).then(res => {
+browser.storage.sync.get(["autoFocus"]).then(res => {
     inputAutoFocus.checked = res.autoFocus || false;
 })
 
 //FUNCTIONS
 async function reloadRyneTabs() {
-    let tabs = await chrome.tabs.query({})
+    let tabs = await browser.tabs.query({})
 
     tabs.forEach(tab => {
-        if (tab.url.includes("https://ryne.ai/")) chrome.tabs.reload(tab.id)
+        if (tab.url.includes("https://ryne.ai/")) browser.tabs.reload(tab.id)
     })
 }
 
@@ -44,17 +44,17 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 // History Delete Button
 switchHistoryCleaner.addEventListener("click", () => {
     inputHistoryCleaner.checked = !inputHistoryCleaner.checked
-    chrome.storage.sync.set({ historyCleaner: inputHistoryCleaner.checked })
+    browser.storage.sync.set({ historyCleaner: inputHistoryCleaner.checked })
 })
 
 switchStyleChanges.addEventListener("click", () => {
     inputStyleChanges.checked = !inputStyleChanges.checked
-    chrome.storage.sync.set({ styleChanges: inputStyleChanges.checked })
+    browser.storage.sync.set({ styleChanges: inputStyleChanges.checked })
 })
 
 switchAutoFocus.addEventListener("click", () => {
     inputAutoFocus.checked = !inputAutoFocus.checked
-    chrome.storage.sync.set({ autoFocus: inputAutoFocus.checked })
+    browser.storage.sync.set({ autoFocus: inputAutoFocus.checked })
 })
 
 // TODO: need to do something about these really long variable names
