@@ -1,7 +1,7 @@
 {
 	"name": "Ryne - Batch Delete",
 	"description": "Adds a button that allows you to easily delete all your chats from Ryne's humanizer and chat pages",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"manifest_version": 2,
 	"browser_specific_settings": {
 		"gecko": {
@@ -9,11 +9,9 @@
 		}
 	},
 	"permissions": [
-		"scripting",
 		"storage",
 		"tabs",
-		"https://ryne.ai/tools/ryne-chat*",
-		"https://ryne.ai/tools/humanizer*"
+		"https://ryne.ai/*"
 	],
 	"icons": {
 		"16": "images/icon-16.png",
