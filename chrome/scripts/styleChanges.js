@@ -25,7 +25,7 @@ function setupHumanizerStyles() {
         .humanizer-resizable {
             border: none;
             border-top: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(5px);
         }
 
         .humanizer-resizable > :nth-child(2) {
@@ -149,11 +149,23 @@ function setupChatStyles() {
             gap: 10px;
         }
 
+        .chat-messages::after {
+            content: '';
+            position: fixed;
+            left: 0;
+            bottom: 0px;
+            background: linear-gradient(to top, black, transparent);
+            width: 100%;
+            height: 50px;
+            pointer-events: none;
+        }
+
 
 
         /* style ai answers */
         .chat-bot {
             border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(25, 25, 25, 0.2);
             backdrop-filter: blur(5px);
             margin-bottom: 0;
             flex-direction: column;
