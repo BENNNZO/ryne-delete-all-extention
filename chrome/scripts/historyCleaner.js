@@ -22,6 +22,8 @@ function setupStyles() {
 }
 
 function injectButton(target) {
+    if (document.querySelector(".delete-all-button")) return
+
     const container = target.querySelector(".main-container-history > .mt-4")
     container.style = "display: flex; gap: 2px"
 
