@@ -104,7 +104,7 @@ body {
 }
 
 .toggle-switch-container input:checked + .slider .knob {
-    left: calc(100% - 22px)
+    left: calc(100% - 23px)
 }
 
 .toggle-switch-container input:not(:checked) + .slider .knob {
@@ -114,8 +114,8 @@ body {
 .slider {
     cursor: pointer;
     position: relative;
-    width: 55px;
-    height: 25px;
+    width: 56px;
+    height: 26px;
     border-radius: 100px;
     transition: all 100ms ease-out;
 }
