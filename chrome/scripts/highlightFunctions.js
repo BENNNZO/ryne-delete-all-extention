@@ -62,11 +62,17 @@ function setupSelectElement(x, y, selection) {
     buttonHumanizeElement.onclick = () => {
         console.log("humanize button clicked")
         console.log(selection)
+        window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${selection}`)
     }
     buttonDetectAIElement.onclick = () => {
         console.log("detect AI button clicked")
         console.log(selection)
+        window.open(`https://reilaa.com/?ryne-toolkit-selection=${selection}`)
     }
+
+    // somehow get and input text that was highlighted
+    // then press button
+
     buttonHumanizeElement.innerText = "Humanize"
     buttonDetectAIElement.innerText = "Detect AI"
 
@@ -88,7 +94,7 @@ function setupEventListener() {
                 console.log(selection)
                 console.log(selection.toString())
                 console.log({ x: e.clientX, y: e.clientY })
-                setupSelectElement(e.clientX, e.clientY, selection)
+                setupSelectElement(e.clientX, e.clientY, selection.toString())
             } else if (selection.type !== "Range") {
                 console.log("\n\n NOT")
                 console.log(e)
