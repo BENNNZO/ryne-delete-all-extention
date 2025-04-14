@@ -8,7 +8,7 @@ function setupSelectElementStyles() {
 
         .select-element {
             position: absolute;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(25, 25, 25, 0.5));
             transform: translate(10px, -50%);
             backdrop-filter: blur(16px);
             border-radius: 1000px;
@@ -28,13 +28,13 @@ function setupSelectElementStyles() {
         }
 
         .select-element button:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .select-element-divider {
             height: 100%;
             width: 1px;
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
         }
     `
 
