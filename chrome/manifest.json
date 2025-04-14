@@ -1,7 +1,7 @@
 {
 	"name": "Ryne Toolkit",
 	"description": "Adds quality of life features to ryne's humanizer and chat web pages. Better code formatting, Auto focus, Cleaner style, and more!",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"manifest_version": 3,
 	"permissions": [
 		"scripting",
