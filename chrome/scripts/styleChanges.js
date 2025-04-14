@@ -191,16 +191,17 @@ function setupChatStyles() {
             margin-left: 0;
         }
 
-        .chat-icons > *:not(:last-child) {
+        .chat-icons > button:not(button:nth-of-type(5)) {
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .chat-icons > :nth-child(2), .chat-icons > :nth-child(3) {
+        .chat-icons > button:nth-of-type(1), .chat-icons > button:nth-of-type(2) {
             display: none;
         }
 
-        .chat-icons > :nth-child(1), .chat-icons > :nth-child(5) {
-            padding: 5px 8px;
+        .chat-icons > :first-child {
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
 
