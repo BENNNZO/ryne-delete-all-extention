@@ -9,7 +9,7 @@
 		"tabs"
 	],
 	"host_permissions": [
-		"https://ryne.ai/*"
+		"<all_urls>"
 	],
 	"icons": {
 		"16": "images/icon-16.png",

@@ -28,7 +28,7 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
         })
     }
 
-    if (!tab.url.includes("https://ryne.ai") && info.status === "complete") {
+    if (!tab.url.includes("https://ryne.ai") && !tab.url.includes("chrome://") && info.status === "complete") {
         chrome.storage.sync.get(["highlightFunctions"]).then(res => {
             if (res.highlightFunctions) {
                 chrome.scripting.executeScript({
