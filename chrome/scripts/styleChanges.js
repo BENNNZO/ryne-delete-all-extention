@@ -130,7 +130,8 @@ function setupChatStyles() {
         header {
             border: none !important;
             border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding-right: 4px;
+            /* padding-right: 4px; ill make it known here I added this before ryne did as well as my code wrapping fix and my fix for code showing under the input box*/
+            padding-right: 1px; /* lol call me crazy but for some reason I think it still looks better with this 1px of padding \(o-o)/ */
         }
 
 
