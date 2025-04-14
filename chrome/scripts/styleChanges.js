@@ -187,7 +187,7 @@ function setupChatStyles() {
         }
 
         .chat-bot > :nth-child(2) {
-            max-width: 100%;
+            max-width: 100% !important;
             margin-left: 0;
         }
 
@@ -232,7 +232,7 @@ function setupChatStyles() {
 
 
 
-        /* fix buggy code sections in ai answers */
+        /* fix buggy code sections in ai answers
         pre {
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0 !important;
@@ -245,6 +245,15 @@ function setupChatStyles() {
 
         pre  {
             overflow-x: scroll;
+        }
+        */
+
+        pre div {
+            border: none !important;
+        }
+
+        pre {
+            width: 100%;
         }
     `
 

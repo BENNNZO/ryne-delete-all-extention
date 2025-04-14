@@ -237,7 +237,7 @@ function setupChatStyles() {
 
 
 
-        /* fix buggy code sections in ai answers */
+        /* fix buggy code sections in ai answers
         pre {
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0 !important;
@@ -250,6 +250,11 @@ function setupChatStyles() {
 
         pre  {
             overflow-x: scroll;
+        }
+        */
+
+        pre div {
+            border: none !important;
         }
     `
 
@@ -271,6 +276,3 @@ function main() {
 }
 
 main()
-
-// saving old background color incase I want to switch back
-// background: linear-gradient(to bottom, rgba(22, 29, 74, 0.5), black);
