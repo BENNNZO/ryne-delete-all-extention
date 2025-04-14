@@ -257,6 +257,13 @@ function setupChatStyles() {
         pre {
             width: 100%;
         }
+
+
+
+        /* history modal style changes */
+        .main-container-history > ul > :first-child > a > li {
+            border: 1px solid rgba(107, 114, 128, 0.5);
+        }
     `
 
     document.head.appendChild(style)
