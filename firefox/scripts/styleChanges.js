@@ -130,12 +130,8 @@ function setupChatStyles() {
         header {
             border: none !important;
             border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
-            padding-right: 4px;
-        }
-
-        /* this is purley because firefox is weird */
-        header + div {
-            top: 70px !important;
+            /* padding-right: 4px; ill make it known here I added this before ryne did as well as my code wrapping fix and my fix for code showing under the input box*/
+            padding-right: 1px; /* lol call me crazy but for some reason I think it still looks better with this 1px of padding \(o-o)/ */
         }
 
 
@@ -192,20 +188,21 @@ function setupChatStyles() {
         }
 
         .chat-bot > :nth-child(2) {
-            max-width: 100%;
+            max-width: 100% !important;
             margin-left: 0;
         }
 
-        .chat-icons > *:not(:last-child) {
+        .chat-icons > button:not(button:nth-of-type(5)) {
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .chat-icons > :nth-child(2), .chat-icons > :nth-child(3) {
+        .chat-icons > button:nth-of-type(1), .chat-icons > button:nth-of-type(2) {
             display: none;
         }
 
-        .chat-icons > :nth-child(1), .chat-icons > :nth-child(5) {
-            padding: 5px 8px;
+        .chat-icons > :first-child {
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
 
@@ -237,7 +234,7 @@ function setupChatStyles() {
 
 
 
-        /* fix buggy code sections in ai answers */
+        /* fix buggy code sections in ai answers
         pre {
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0 !important;
@@ -250,6 +247,15 @@ function setupChatStyles() {
 
         pre  {
             overflow-x: scroll;
+        }
+        */
+
+        pre div {
+            border: none !important;
+        }
+
+        pre {
+            width: 100%;
         }
     `
 
@@ -271,6 +277,3 @@ function main() {
 }
 
 main()
-
-// saving old background color incase I want to switch back
-// background: linear-gradient(to bottom, rgba(22, 29, 74, 0.5), black);
