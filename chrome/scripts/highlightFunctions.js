@@ -47,30 +47,57 @@ function clearSelectElements() {
     })
 }
 
-function setupSelectElement(x, y) {
+function setupSelectElement(x, y, selection) {
     clearSelectElements()
 
-    const element = document.createElement("div")
-    element.classList.add("select-element")
-    element.innerHTML = `<button>Humanize</button><div class="select-element-divider"></div><button>Detect AI</button>`
-    element.style = `left: ${x}px; top: ${y}px`
+    const container = document.createElement("div")
+    container.classList.add("select-element")
+    container.style = `left: ${x}px; top: ${y}px`
+    
+    const divider = document.createElement("div")
+    divider.classList.add("select-element-divider")
 
-    document.body.appendChild(element)
+    const buttonHumanizeElement = document.createElement("button")
+    const buttonDetectAIElement = document.createElement("button")
+    buttonHumanizeElement.onclick = () => {
+        console.log("humanize button clicked")
+        console.log(selection)
+    }
+    buttonDetectAIElement.onclick = () => {
+        console.log("detect AI button clicked")
+        console.log(selection)
+    }
+    buttonHumanizeElement.innerText = "Humanize"
+    buttonDetectAIElement.innerText = "Detect AI"
+
+    container.appendChild(buttonHumanizeElement)
+    container.appendChild(divider)
+    container.appendChild(buttonDetectAIElement)
+
+    document.body.appendChild(container)
 }
 
 function setupEventListener() {
     document.addEventListener('mouseup', e => {
-        const selection = window.getSelection()
-
-        if (selection.type === "Range") {
-            console.log(selection)
-            console.log(selection.toString())
-            console.log({ x: e.clientX, y: e.clientY })
-            console.log(e)
-            setupSelectElement(e.clientX, e.clientY)
-        } else {
-            clearSelectElements()
-        }
+        setTimeout(() => {
+            const selection = window.getSelection()
+    
+            if (selection.type === "Range" && e.target.parentElement.className !== "select-element") {
+                console.log("\n\n RANGE")
+                console.log(e)
+                console.log(selection)
+                console.log(selection.toString())
+                console.log({ x: e.clientX, y: e.clientY })
+                setupSelectElement(e.clientX, e.clientY, selection)
+            } else if (selection.type !== "Range") {
+                console.log("\n\n NOT")
+                console.log(e)
+                console.log(selection)
+                console.log(selection.toString())
+                console.log({ x: e.clientX, y: e.clientY })
+                clearSelectElements()
+            }
+        }, 25)
     })
 }
 
