@@ -160,6 +160,11 @@ function setupChatStyles() {
             height: 50px;
             pointer-events: none;
         }
+        
+        .chat-main > div:nth-of-type(1) {
+            overflow: visible !important;
+            max-width: 100%;
+        }
 
 
 
