@@ -159,6 +159,7 @@ function setupChatStyles() {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-bottom: 50px;
         }
 
         .chat-messages::after {
