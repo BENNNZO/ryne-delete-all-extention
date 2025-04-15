@@ -41,7 +41,7 @@ function setupSelectElementStyles() {
         }
 
         .ryne-toolkit-fade-out {
-            animation: ryne-toolkit-fade-out 150ms ease-out forwards;
+            animation: ryne-toolkit-fade-out 150ms ease-in forwards;
         }
 
         @keyframes ryne-toolkit-fade-in {
