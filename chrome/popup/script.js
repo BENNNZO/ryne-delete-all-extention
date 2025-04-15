@@ -45,7 +45,7 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 /* --------------------------------- TOGGLES -------------------------------- */
 switchHighlightFunctions.addEventListener("click", async () => {
     if (!inputHighlightFunctions.checked) {
-        const granted = chrome.permissions.request({ origins: ["<all_urls>"] })
+        const granted = await chrome.permissions.request({ origins: ["<all_urls>"] })
 
         if (granted) {
             inputHighlightFunctions.checked = true

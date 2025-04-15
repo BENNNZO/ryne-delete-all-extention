@@ -43,9 +43,25 @@ async function reloadRyneTabs() {
 refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
-switchHighlightFunctions.addEventListener("click", () => {
-    inputHighlightFunctions.checked = !inputHighlightFunctions.checked
-    browser.storage.sync.set({ highlightFunctions: inputHighlightFunctions.checked })
+switchHighlightFunctions.addEventListener("click", async () => {
+    if (!inputHighlightFunctions.checked) {
+        const granted = await browser.permissions.request({ origins: ["<all_urls>"] })
+
+        if (granted) {
+            inputHighlightFunctions.checked = true
+            browser.storage.sync.set({ highlightFunctions: true })
+        } else {
+            inputHighlightFunctions.checked = false
+            browser.storage.sync.set({ highlightFunctions: false })
+        }
+    
+    } else {
+        await browser.permissions.remove({ origins: ["<all_urls>"] })
+
+        inputHighlightFunctions.checked = false
+        browser.storage.sync.set({ highlightFunctions: false })
+    }
+
 })
 
 switchHistoryCleaner.addEventListener("click", () => {
