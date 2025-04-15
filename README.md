@@ -1,5 +1,5 @@
 # Ryne Toolkit Extention
-This extention aims to add quality of life updates to Ryne. Anything from auto focusing on the text elements to re-styling the website. All of the settings are able to be toggled on and off easity  by turning it off in the extention popup and refreshing the page
+This extention aims to add quality of life updates to Ryne. Anything from auto focusing on the text elements to re-styling the website. All of the settings are able to be toggled on and off easity by turning it off in the extention popup and refreshing the page
 
 ## Features
 - Auto place your cursor in the text area (works on both chat and humanizer pages)
@@ -10,9 +10,14 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 ## Feature & Style Change Examples
 
 ### New Popup Window
-- Feature: All new popup window when you click on the extension that allows you to enable and disable certain features!
+- All new popup window when you click on the extension that allows you to enable and disable certain features!
 
 ![Popup Window](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/popup.png)
+
+### New Highlight Options
+- All new options when selecting text you can easily and effortlessly detect AI or humanize the selected text!
+
+![Highlight Options](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/highlight.png)
 
 ### Chat Page Updates (Before: left, After: right)
 - Fixed bug were AI's code output would weirdly wrap and become unreadable. Now its simply output with a horizontal scrollbar
