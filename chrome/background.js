@@ -1,4 +1,4 @@
-chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
+chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
     if (tab.url.includes("https://ryne.ai") && info.status === "complete") {
         chrome.storage.sync.get(["historyCleaner"]).then(res => {
             if (res.historyCleaner) {
@@ -28,17 +28,6 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
         })
     }
 
-    if (!tab.url.includes("https://ryne.ai") && !tab.url.includes("chrome://") && !tab.url.includes("https://reilaa.com") && info.status === "complete") {
-        chrome.storage.sync.get(["highlightFunctions"]).then(res => {
-            if (res.highlightFunctions) {
-                chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
-                    files: ["/scripts/highlightFunctions.js"]
-                })
-            }
-        })
-    }
-
     if (tab.url.includes("https://reilaa.com") && info.status === "complete") {
         chrome.storage.sync.get(["highlightFunctions"]).then(res => {
             if (res.highlightFunctions) {
@@ -59,5 +48,20 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
                 })
             }
         })
+    }
+
+    const hasPermissions = await chrome.permissions.contains({ origins: ["<all_urls>"] })
+
+    if (hasPermissions) {
+        if (!tab.url.includes("https://ryne.ai") && !tab.url.includes("chrome://") && !tab.url.includes("https://reilaa.com") && info.status === "complete") {
+            chrome.storage.sync.get(["highlightFunctions"]).then(res => {
+                if (res.highlightFunctions) {
+                    chrome.scripting.executeScript({
+                        target: { tabId: tab.id },
+                        files: ["/scripts/highlightFunctions.js"]
+                    })
+                }
+            })
+        }
     }
 })

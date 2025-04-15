@@ -1,5 +1,3 @@
-// History Cleaner
-
 /* ---------------------------------- INIT ---------------------------------- */
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
@@ -42,15 +40,28 @@ async function reloadRyneTabs() {
 }
 
 /* ----------------------------- REFRESH BUTTON ----------------------------- */
-// the refresh button will only refresh ryne specific pages so
-// you dont have to worry about your other tabs!
 refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
-// History Delete Button
-switchHighlightFunctions.addEventListener("click", () => {
-    inputHighlightFunctions.checked = !inputHighlightFunctions.checked
-    chrome.storage.sync.set({ highlightFunctions: inputHighlightFunctions.checked })
+switchHighlightFunctions.addEventListener("click", async () => {
+    if (!inputHighlightFunctions.checked) {
+        const granted = chrome.permissions.request({ origins: ["<all_urls>"] })
+
+        if (granted) {
+            inputHighlightFunctions.checked = true
+            chrome.storage.sync.set({ highlightFunctions: true })
+        } else {
+            inputHighlightFunctions.checked = false
+            chrome.storage.sync.set({ highlightFunctions: false })
+        }
+    
+    } else {
+        await chrome.permissions.remove({ origins: ["<all_urls>"] })
+
+        inputHighlightFunctions.checked = false
+        chrome.storage.sync.set({ highlightFunctions: false })
+    }
+
 })
 
 switchHistoryCleaner.addEventListener("click", () => {
