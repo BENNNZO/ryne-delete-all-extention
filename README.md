@@ -12,6 +12,7 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 - the humanizer graidents cause some visual glitched which should be fixed very soon
 - (not really a bug) I would like to make the highlight humanizer option automatically switch to an already opened humanizer tab if one is already present.
 - the bottom chat of the AI seems to barely overlap with the AI chat input should be an easy fix.
+- sometimes sites have an element that spans over the whole page so I will have to add a really high z-index to the highlight popup
   
 ## Feature & Style Change Examples
 
