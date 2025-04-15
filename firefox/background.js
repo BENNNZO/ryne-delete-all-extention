@@ -24,4 +24,34 @@ browser.tabs.onUpdated.addListener((tabId, info, tab) => {
             }
         })
     }
+
+    if (!tab.url.includes("https://ryne.ai") && !tab.url.includes("chrome://") && !tab.url.includes("https://reilaa.com") && info.status === "complete") {
+        browser.storage.sync.get(["highlightFunctions"]).then(res => {
+            if (res.highlightFunctions) {
+                browser.tabs.executeScript(tab.id, {
+                    file: "/scripts/highlightFunctions.js"
+                })
+            }
+        })
+    }
+
+    if (tab.url.includes("https://reilaa.com") && info.status === "complete") {
+        browser.storage.sync.get(["highlightFunctions"]).then(res => {
+            if (res.highlightFunctions) {
+                browser.tabs.executeScript(tab.id, {
+                    file: "/scripts/highlightDetectAI.js"
+                })
+            }
+        })
+    }
+
+    if (tab.url.includes("https://ryne.ai/tools/humanizer") && info.status === "complete") {
+        browser.storage.sync.get(["highlightFunctions"]).then(res => {
+            if (res.highlightFunctions) {
+                browser.tabs.executeScript(tab.id, {
+                    file: "/scripts/highlightHumanize.js"
+                })
+            }
+        })
+    }
 })

@@ -4,6 +4,9 @@
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
 
+const inputHighlightFunctions = document.getElementById("input-highlight-functions")
+const switchHighlightFunctions = document.getElementById("switch-highlight-functions")
+
 const inputHistoryCleaner = document.getElementById("input-history-cleaner")
 const switchHistoryCleaner = document.getElementById("switch-history-cleaner")
 
@@ -14,6 +17,9 @@ const inputAutoFocus = document.getElementById("input-auto-focus")
 const switchAutoFocus = document.getElementById("switch-auto-focus")
 
 // STORAGE STATES
+chrome.storage.sync.get(["highlightFunctions"]).then(res => {
+    inputHighlightFunctions.checked = res.highlightFunctions || false;
+})
 chrome.storage.sync.get(["historyCleaner"]).then(res => {
     inputHistoryCleaner.checked = res.historyCleaner || false;
 })
@@ -42,6 +48,11 @@ refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
 // History Delete Button
+switchHighlightFunctions.addEventListener("click", () => {
+    inputHighlightFunctions.checked = !inputHighlightFunctions.checked
+    chrome.storage.sync.set({ highlightFunctions: inputHighlightFunctions.checked })
+})
+
 switchHistoryCleaner.addEventListener("click", () => {
     inputHistoryCleaner.checked = !inputHistoryCleaner.checked
     chrome.storage.sync.set({ historyCleaner: inputHistoryCleaner.checked })
