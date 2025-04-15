@@ -1,8 +1,9 @@
-// History Cleaner
-
 /* ---------------------------------- INIT ---------------------------------- */
 // ELEMENTS
 const refreshButton = document.querySelector(".refresh-button")
+
+const inputHighlightFunctions = document.getElementById("input-highlight-functions")
+const switchHighlightFunctions = document.getElementById("switch-highlight-functions")
 
 const inputHistoryCleaner = document.getElementById("input-history-cleaner")
 const switchHistoryCleaner = document.getElementById("switch-history-cleaner")
@@ -14,6 +15,9 @@ const inputAutoFocus = document.getElementById("input-auto-focus")
 const switchAutoFocus = document.getElementById("switch-auto-focus")
 
 // STORAGE STATES
+browser.storage.sync.get(["highlightFunctions"]).then(res => {
+    inputHighlightFunctions.checked = res.highlightFunctions || false;
+})
 browser.storage.sync.get(["historyCleaner"]).then(res => {
     inputHistoryCleaner.checked = res.historyCleaner || false;
 })
@@ -36,12 +40,14 @@ async function reloadRyneTabs() {
 }
 
 /* ----------------------------- REFRESH BUTTON ----------------------------- */
-// the refresh button will only refresh ryne specific pages so
-// you dont have to worry about your other tabs!
 refreshButton.addEventListener("click", reloadRyneTabs)
 
 /* --------------------------------- TOGGLES -------------------------------- */
-// History Delete Button
+switchHighlightFunctions.addEventListener("click", () => {
+    inputHighlightFunctions.checked = !inputHighlightFunctions.checked
+    browser.storage.sync.set({ highlightFunctions: inputHighlightFunctions.checked })
+})
+
 switchHistoryCleaner.addEventListener("click", () => {
     inputHistoryCleaner.checked = !inputHistoryCleaner.checked
     browser.storage.sync.set({ historyCleaner: inputHistoryCleaner.checked })

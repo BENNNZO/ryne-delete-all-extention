@@ -11,7 +11,7 @@
 	"permissions": [
 		"storage",
 		"tabs",
-		"https://ryne.ai/*"
+		"https://*/*"
 	],
 	"icons": {
 		"16": "images/icon-16.png",
