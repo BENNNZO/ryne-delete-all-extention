@@ -18,6 +18,7 @@ function setupSelectElementStyles() {
             overflow: hidden;
             height: 36px;
             animation: ryne-toolkit-fade-in 150ms ease-out forwards;
+            z-index: 999999;
         }
 
         .select-element button {

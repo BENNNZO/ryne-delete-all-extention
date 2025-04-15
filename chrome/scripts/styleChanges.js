@@ -33,6 +33,7 @@ function setupHumanizerStyles() {
             left: 1px;
             width: 1px;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), transparent);
+            z-index: 1000;
         }
 
         .humanizer-editor-bottom-nav {
@@ -61,25 +62,28 @@ function setupHumanizerStyles() {
         .humanizer-input div[contenteditable="true"]::before {
             content: '';
             position: fixed;
-            width: 50%;
+            width: 100%;
             height: 25px;
             left: 0;
             bottom: 31px;
             background: linear-gradient(to bottom, transparent, black);
-            z-index: 1000;
+            z-index: 1;
+            pointer-event: none;
         }
 
         #humanizer-output::before {
             content: '';
             position: fixed;
-            width: 50%;
+            width: 100%;
             height: 25px;
-            left: calc(50% + 2px);
-            bottom: 31px;
-            background: linear-gradient(to bottom, transparent, black);
-            z-index: 1000;
+            left: 0;
+            top: 60px;
+            background: linear-gradient(to bottom, black, transparent);
+            z-index: 1;
+            pointer-event: none;
         }
 
+        /*
         .humanizer-input div[contenteditable="true"]::after {
             content: '';
             position: fixed;
@@ -88,7 +92,7 @@ function setupHumanizerStyles() {
             left: 0;
             top: 60px;
             background: linear-gradient(to bottom, black, transparent);
-            z-index: 1000;
+            z-index: 0;
         }
 
         #humanizer-output::after {
@@ -99,8 +103,9 @@ function setupHumanizerStyles() {
             left: calc(50% + 2px);
             top: 60px;
             background: linear-gradient(to bottom, black, transparent);
-            z-index: 1000;
+            z-index: 0;
         }
+        */
 
         #humanizer-output span > div {
             background: rgb(0, 0, 0);
@@ -154,6 +159,7 @@ function setupChatStyles() {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-bottom: 50px;
         }
 
         .chat-messages::after {
