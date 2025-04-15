@@ -70,9 +70,6 @@ function setupSelectElement(x, y, selection) {
         window.open(`https://reilaa.com/?ryne-toolkit-selection=${selection}`)
     }
 
-    // somehow get and input text that was highlighted
-    // then press button
-
     buttonHumanizeElement.innerText = "Humanize"
     buttonDetectAIElement.innerText = "Detect AI"
 
@@ -89,18 +86,8 @@ function setupEventListener() {
             const selection = window.getSelection()
     
             if (selection.type === "Range" && e.target.parentElement.className !== "select-element") {
-                console.log("\n\n RANGE")
-                console.log(e)
-                console.log(selection)
-                console.log(selection.toString())
-                console.log({ x: e.clientX, y: e.clientY })
                 setupSelectElement(e.clientX, e.clientY, selection.toString())
             } else if (selection.type !== "Range") {
-                console.log("\n\n NOT")
-                console.log(e)
-                console.log(selection)
-                console.log(selection.toString())
-                console.log({ x: e.clientX, y: e.clientY })
                 clearSelectElements()
             }
         }, 25)
@@ -117,7 +104,6 @@ function main() {
 
         setupEventListener()
         setupSelectElementStyles()
-        setupSelectElement(100, 100)
     }
 }
 
