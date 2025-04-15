@@ -18,6 +18,7 @@ function setupSelectElementStyles() {
             overflow: hidden;
             height: 36px;
             font-family: "Poppins", sans-serif;
+            animation: ryne-toolkit-fade-in 150ms ease-out forwards;
         }
 
         .select-element button {
@@ -36,48 +37,78 @@ function setupSelectElementStyles() {
             width: 1px;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
         }
+
+        .ryne-toolkit-fade-out {
+            animation: ryne-toolkit-fade-out 150ms ease-out forwards;
+        }
+
+        @keyframes ryne-toolkit-fade-in {
+            from {
+                opacity: 0;
+                transform: translate(10px, calc(5px + -50%));
+            }
+            to {
+                opacity: 1;
+                transform: translate(10px, -50%);
+            }
+        }
+
+        @keyframes ryne-toolkit-fade-out {
+            from {
+                opacity: 1;
+                transform: translate(10px, -50%);
+            }
+            to {
+                opacity: 0.5;
+                transform: translate(10px, calc(5px + -50%));
+            }
+        }
     `
 
     document.head.appendChild(style)
 }
 
 function clearSelectElements() {
-    document.querySelectorAll(".select-element").forEach(el => {
-        el.remove()
-    })
+    document.querySelectorAll(".select-element").forEach(el => el.classList.add("ryne-toolkit-fade-out"))
+
+    setTimeout(() => {
+        document.querySelectorAll(".select-element").forEach(el => el.remove())
+    }, 150)
 }
 
 function setupSelectElement(x, y, selection) {
     clearSelectElements()
 
-    const container = document.createElement("div")
-    container.classList.add("select-element")
-    container.style = `left: ${x}px; top: ${y}px`
+    setTimeout(() => {
+        const container = document.createElement("div")
+        container.classList.add("select-element")
+        container.style = `left: ${x}px; top: ${y}px`
+        
+        const divider = document.createElement("div")
+        divider.classList.add("select-element-divider")
     
-    const divider = document.createElement("div")
-    divider.classList.add("select-element-divider")
-
-    const buttonHumanizeElement = document.createElement("button")
-    const buttonDetectAIElement = document.createElement("button")
-    buttonHumanizeElement.onclick = () => {
-        console.log("humanize button clicked")
-        console.log(selection)
-        window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${selection}`)
-    }
-    buttonDetectAIElement.onclick = () => {
-        console.log("detect AI button clicked")
-        console.log(selection)
-        window.open(`https://reilaa.com/?ryne-toolkit-selection=${selection}`)
-    }
-
-    buttonHumanizeElement.innerText = "Humanize"
-    buttonDetectAIElement.innerText = "Detect AI"
-
-    container.appendChild(buttonHumanizeElement)
-    container.appendChild(divider)
-    container.appendChild(buttonDetectAIElement)
-
-    document.body.appendChild(container)
+        const buttonHumanizeElement = document.createElement("button")
+        const buttonDetectAIElement = document.createElement("button")
+        buttonHumanizeElement.onclick = () => {
+            console.log("humanize button clicked")
+            console.log(selection)
+            window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${selection}`)
+        }
+        buttonDetectAIElement.onclick = () => {
+            console.log("detect AI button clicked")
+            console.log(selection)
+            window.open(`https://reilaa.com/?ryne-toolkit-selection=${selection}`)
+        }
+    
+        buttonHumanizeElement.innerText = "Humanize"
+        buttonDetectAIElement.innerText = "Detect AI"
+    
+        container.appendChild(buttonHumanizeElement)
+        container.appendChild(divider)
+        container.appendChild(buttonDetectAIElement)
+    
+        document.body.appendChild(container)
+    }, 150)
 }
 
 function setupEventListener() {
