@@ -11,7 +11,7 @@
 	"permissions": [
 		"storage",
 		"tabs",
-		"https://*/*"
+		"<all_urls>"
 	],
 	"icons": {
 		"16": "images/icon-16.png",
