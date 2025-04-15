@@ -17,7 +17,6 @@ function setupSelectElementStyles() {
             display: flex;
             overflow: hidden;
             height: 36px;
-            font-family: "Poppins", sans-serif;
             animation: ryne-toolkit-fade-in 150ms ease-out forwards;
         }
 
@@ -26,6 +25,9 @@ function setupSelectElementStyles() {
             border: none;
             padding: 0 15px 0 15px;
             transition: background 150ms ease-out;
+            color: white;
+            cursor: pointer;
+            font-family: "Poppins", sans-serif;
         }
 
         .select-element button:hover {
