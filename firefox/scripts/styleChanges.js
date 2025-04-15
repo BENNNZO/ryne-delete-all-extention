@@ -122,6 +122,12 @@ function setupChatStyles() {
             backdrop-filter: blur(5px);
             border: none;
             border-top: 1px solid rgba(255, 255, 255, 0.25);
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 5px;
+            width: 75%;
+            max-width: 1000px
         }
 
 
