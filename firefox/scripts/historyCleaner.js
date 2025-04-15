@@ -39,7 +39,7 @@ function injectButton(target) {
     if (document.querySelector(".delete-all-button")) return
 
     const container = target.querySelector(".main-container-history > .mt-4")
-    container.style = "display: flex; gap: 2px"
+    container.style = "display: flex; gap: 4px"
 
     const button = document.createElement("button")
     button.classList.add("delete-all-button")
