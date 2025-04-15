@@ -119,7 +119,7 @@ function setupEventListener() {
             const selection = window.getSelection()
     
             if (selection.type === "Range" && e.target.parentElement.className !== "select-element") {
-                setupSelectElement(e.clientX, e.clientY, selection.toString())
+                setupSelectElement(e.pageX, e.pageY, selection.toString())
             } else if (selection.type !== "Range") {
                 clearSelectElements()
             }

@@ -8,9 +8,13 @@
 		"storage",
 		"tabs"
 	],
-	"host_permissions": [
-		"<all_urls>"
-	],
+    "optional_host_permissions": [
+        "<all_urls>"
+    ],
+    "host_permissions": [
+        "https://ryne.ai/*",
+        "https://reilaa.com/*"
+    ],
 	"icons": {
 		"16": "images/icon-16.png",
 		"32": "images/icon-32.png",
