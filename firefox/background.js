@@ -23,6 +23,14 @@ browser.tabs.onUpdated.addListener(async (tabId, info, tab) => {
                 })
             }
         })
+        
+        browser.storage.sync.get(["quickActions"]).then(res => {
+            if (res.quickActions) {
+                browser.tabs.executeScript(tab.id, {
+                    file: "/scripts/quickActions.js"
+                })
+            }
+        })
     }
 
     if (tab.url.includes("https://reilaa.com") && info.status === "complete") {
