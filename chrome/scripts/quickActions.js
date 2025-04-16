@@ -4,15 +4,40 @@ function setupHumanizerButtonStyles() {
     const style = document.createElement("style")
     style.id = "ryne-toolkit-humanizer-button-styles"
     style.textContent = `
-        
+    
     `
 
 
     document.head.appendChild(style)
 }
 
-function setupHumanizerButton() {
+function setupHumanizerButton(node) {
 
+    const humanizerButton = document.createElement('button')
+    humanizerButton.classList.add("ryne-toolkit-humanizer-button")
+    humanizerButton.innerHTML = `<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+
+    const chatIconsContainer = node.querySelector(".chat-icons")
+    chatIconsContainer.appendChild(humanizerButton)
+    console.log(chatIconsContainer)
+}
+
+function setupObserver() {
+    const chatMessagesContainer = document.querySelector(".chat-messages")
+
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                node.childNodes.forEach(child => {
+                    if (Array.from(child.classList).includes("chat-bot")) {
+                        setupHumanizerButton(child)
+                    }
+                })
+            })
+        })
+    })
+    
+    observer.observe(chatMessagesContainer, { childList: true })
 }
 
 function setupNewChatButtonStyles() {
@@ -46,7 +71,6 @@ function setupNewChatButton() {
 
     chatInputBoxButtonsContainer.insertBefore(newChatButton, chatInputBoxButtonsContainer.childNodes[0])
     console.log(chatInputBoxButtonsContainer)
-
 }
 
 function main() {
@@ -56,6 +80,8 @@ function main() {
         console.log("[Ryne Toolkit] Initializing Quick Actions...")
 
         window.__quickActionsInitialized = true
+
+        setupObserver()
 
         setupNewChatButton()
         setupHumanizerButton()
