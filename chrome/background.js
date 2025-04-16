@@ -3,7 +3,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["historyCleaner"]).then(res => {
             if (res.historyCleaner) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/historyCleaner.js"]
                 })
             }
@@ -12,7 +12,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["autoFocus"]).then(res => {
             if (res.autoFocus) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/autoFocus.js"]
                 })
             }
@@ -21,7 +21,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["styleChanges"]).then(res => {
             if (res.styleChanges) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/styleChanges.js"]
                 })
             }
@@ -30,7 +30,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["quickActions"]).then(res => {
             if (res.quickActions) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/quickActions.js"]
                 })
             }
@@ -41,7 +41,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["highlightFunctions"]).then(res => {
             if (res.highlightFunctions) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/highlightDetectAI.js"]
                 })
             }
@@ -52,7 +52,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         chrome.storage.sync.get(["highlightFunctions"]).then(res => {
             if (res.highlightFunctions) {
                 chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
+                    target: { tabId },
                     files: ["/scripts/highlightHumanize.js"]
                 })
             }
@@ -66,7 +66,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
             chrome.storage.sync.get(["highlightFunctions"]).then(res => {
                 if (res.highlightFunctions) {
                     chrome.scripting.executeScript({
-                        target: { tabId: tab.id },
+                        target: { tabId },
                         files: ["/scripts/highlightFunctions.js"]
                     })
                 }
