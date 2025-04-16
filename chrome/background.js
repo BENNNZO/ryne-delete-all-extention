@@ -26,6 +26,15 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
                 })
             }
         })
+        
+        chrome.storage.sync.get(["quickActions"]).then(res => {
+            if (res.quickActions) {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: ["/scripts/quickActions.js"]
+                })
+            }
+        })
     }
 
     if (tab.url.includes("https://reilaa.com") && info.status === "complete") {

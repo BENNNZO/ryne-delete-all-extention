@@ -83,7 +83,7 @@ switchStyleChanges.addEventListener("click", () => {
 
 switchQuickActions.addEventListener("click", () => {
     inputQuickActions.checked = !inputQuickActions.checked
-    browser.storage.sync.set({ autoFocus: inputQuickActions.checked })
+    browser.storage.sync.set({ quickActions: inputQuickActions.checked })
 })
 
 switchAutoFocus.addEventListener("click", () => {
