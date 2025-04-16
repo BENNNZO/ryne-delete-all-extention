@@ -6,6 +6,7 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 - History delete button that allows you to quickly and easily delete all your chats from Ryne's humanizer and chat pages.
 - New styling for the Dashboard, Chat, and Humanizer pages.
 - After highlighting text onany website you will have the option to humanize or detect for AI!
+- Fixed bug where code would only be one line long no matter how much code there was.
 <!-- - Fixed a bug where if AI output code, it would weirdly wrap, and be hard to read. Now the code simply outputs with a horizontal scrollbar. -->
 
 ## Known Bugs
@@ -28,6 +29,11 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 - All new options when selecting text you can easily and effortlessly detect AI or humanize the selected text!
 
 ![Highlight Options](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/highlight.png)
+
+### Code output bug fix (Before: top, After: bottom)
+- Ryne's code output has a bug where every line of code will be strung into one long line now it is fixed with the toolkit extension.
+
+![Chat Page Updates](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/code/edited2.png)
 
 ### Chat Page Updates (Before: left, After: right)
 <!-- - Fixed bug were AI's code output would weirdly wrap and become unreadable. Now its simply output with a horizontal scrollbar -->
