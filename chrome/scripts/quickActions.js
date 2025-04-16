@@ -1,4 +1,21 @@
-function setupStyles() {
+function setupHumanizerButtonStyles() {
+    if (document.getElementById("ryne-toolkit-humanizer-button-styles")) return
+
+    const style = document.createElement("style")
+    style.id = "ryne-toolkit-humanizer-button-styles"
+    style.textContent = `
+        
+    `
+
+
+    document.head.appendChild(style)
+}
+
+function setupHumanizerButton() {
+
+}
+
+function setupNewChatButtonStyles() {
     if (document.getElementById("ryne-toolkit-new-chat-button-styles")) return
 
     const style = document.createElement("style")
@@ -17,10 +34,6 @@ function setupStyles() {
 
 
     document.head.appendChild(style)
-}
-
-function setupHumanizerButton() {
-
 }
 
 function setupNewChatButton() {
@@ -47,7 +60,8 @@ function main() {
         setupNewChatButton()
         setupHumanizerButton()
 
-        setupStyles()
+        setupNewChatButtonStyles()
+        setupHumanizerButtonStyles()
     }
 }
 
