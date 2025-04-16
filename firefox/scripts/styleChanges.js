@@ -269,6 +269,15 @@ function setupChatStyles() {
             width: 100%;
         }
 
+        pre code {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        pre > div:nth-of-type(1) > div:nth-of-type(2) {
+            padding: 10px 15px !important;
+        }
+
 
 
         /* history modal style changes */
