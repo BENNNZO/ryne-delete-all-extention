@@ -4,19 +4,10 @@ function setupStyles() {
     const style = document.createElement("style")
     style.id = "ryne-toolkit-new-chat-button-styles"
     style.textContent = `
-        .chat-input-box > div:nth-of-type(1) > button {
-            border: 1px solid rgba(255, 255, 255, 0.08)
-        }
-
-        .chat-input-box + div > div > * {
-            border: 1px solid rgba(255, 255, 255, 0.08)
-        }
-
         .ryne-toolkit-new-chat-button {
             background: #090A1A;
             padding: 0.375rem;
             border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.08)
         }
 
         .ryne-toolkit-new-chat-button:hover {
