@@ -26,9 +26,10 @@ function setupHumanizerButton() {
 function setupNewChatButton() {
     const chatInputBoxButtonsContainer = document.querySelector(".chat-input-box").nextSibling.firstChild
 
-    const newChatButton = document.createElement('button')
+    const newChatButton = document.createElement('a')
     newChatButton.classList.add("ryne-toolkit-new-chat-button")
     newChatButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" width="20px" height="20px"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>`
+    newChatButton.href = "/tools/ryne-chat"
 
     chatInputBoxButtonsContainer.insertBefore(newChatButton, chatInputBoxButtonsContainer.childNodes[0])
     console.log(chatInputBoxButtonsContainer)
