@@ -9,9 +9,12 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 <!-- - Fixed a bug where if AI output code, it would weirdly wrap, and be hard to read. Now the code simply outputs with a horizontal scrollbar. -->
 
 ## Known Bugs
-- the humanizer graidents cause some visual glitched which should be fixed very soon
 - (not really a bug) I would like to make the highlight humanizer option automatically switch to an already opened humanizer tab if one is already present.
-- the bottom chat of the AI seems to barely overlap with the AI chat input should be an easy fix.
+- Using more than one LLM at a time seems to not work need to investigate.
+
+[Fixed in next release]
+- the bottom of the AI responses seems to barely overlap with the chat input box.
+- the humanizer graidents cause some visual glitched which should be fixed very soon
 - sometimes sites have an element that spans over the whole page so I will have to add a really high z-index to the highlight popup
   
 ## Feature & Style Change Examples
