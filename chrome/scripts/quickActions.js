@@ -4,19 +4,46 @@ function setupHumanizerButtonStyles() {
     const style = document.createElement("style")
     style.id = "ryne-toolkit-humanizer-button-styles"
     style.textContent = `
-    
+        .ryne-toolkit-humanizer-button {
+            position: relative;
+        }
+
+        .ryne-toolkit-humanizer-button button {
+            background-size: 200%;
+            position: absolute;
+            height: 100%;
+            aspect-ratio: 1/1;
+            left: 0px;
+            bottom: 1px;
+            border-radius: 100px;
+            background: #0a0a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 150ms ease-out;
+        }
+
+        .ryne-toolkit-humanizer-button button:hover {
+            background:rgb(24, 24, 57);
+        }
+
+        .ryne-toolkit-humanizer-button div {
+            background: linear-gradient(90deg,#8a2be2,indigo,#9370db,#483d8b,#6a5acd,#8a2be2);
+            height: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 100px;
+        }
     `
 
     document.head.appendChild(style)
 }
 
 function setupHumanizerButton(node) {
-    const humanizerButton = document.createElement('button')
+    const humanizerButton = document.createElement('div')
     humanizerButton.classList.add("ryne-toolkit-humanizer-button")
-    humanizerButton.innerHTML = `<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+    humanizerButton.innerHTML = `<div class="animate-rainbow"></div><button><svg class="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></button>`
 
-    const chatIconsContainer = node.querySelector(".chat-icons")
-    chatIconsContainer.appendChild(humanizerButton)
+    node.appendChild(humanizerButton)
 }
 
 function setupObserver() {
@@ -24,18 +51,15 @@ function setupObserver() {
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                node.childNodes.forEach(child => {
-                    if (Array.from(child.classList).includes("chat-bot")) {
-                        console.log(child)
-                        setupHumanizerButton(child)
-                    }
-                })
+            Array.from(mutation.addedNodes).forEach(node => {
+                if (node.className.includes("chat-icons")) {
+                    setupHumanizerButton(node)
+                }
             })
         })
     })
     
-    observer.observe(chatMessagesContainer, { childList: true })
+    observer.observe(chatMessagesContainer, { childList: true, subtree: true })
 }
 
 function setupNewChatButtonStyles() {
