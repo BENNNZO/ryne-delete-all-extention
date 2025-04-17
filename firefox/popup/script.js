@@ -11,6 +11,9 @@ const switchHistoryCleaner = document.getElementById("switch-history-cleaner")
 const inputStyleChanges = document.getElementById("input-style-changes")
 const switchStyleChanges = document.getElementById("switch-style-changes")
 
+const inputQuickActions = document.getElementById("input-quick-actions")
+const switchQuickActions = document.getElementById("switch-quick-actions")
+
 const inputAutoFocus = document.getElementById("input-auto-focus")
 const switchAutoFocus = document.getElementById("switch-auto-focus")
 
@@ -24,6 +27,10 @@ browser.storage.sync.get(["historyCleaner"]).then(res => {
 
 browser.storage.sync.get(["styleChanges"]).then(res => {
     inputStyleChanges.checked = res.styleChanges || false;
+})
+
+browser.storage.sync.get(["quickActions"]).then(res => {
+    inputQuickActions.checked = res.quickActions || false;
 })
 
 browser.storage.sync.get(["autoFocus"]).then(res => {
@@ -72,6 +79,11 @@ switchHistoryCleaner.addEventListener("click", () => {
 switchStyleChanges.addEventListener("click", () => {
     inputStyleChanges.checked = !inputStyleChanges.checked
     browser.storage.sync.set({ styleChanges: inputStyleChanges.checked })
+})
+
+switchQuickActions.addEventListener("click", () => {
+    inputQuickActions.checked = !inputQuickActions.checked
+    browser.storage.sync.set({ quickActions: inputQuickActions.checked })
 })
 
 switchAutoFocus.addEventListener("click", () => {
