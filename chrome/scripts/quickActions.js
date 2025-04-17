@@ -46,7 +46,7 @@ function setupHumanizerButtonStyles() {
     document.head.appendChild(style)
 }
 
-function setupHumanizerButton(node, text) {
+function setupHumanizerButton(node, copyButton) {
     const humanizerContainer = document.createElement('div')
     humanizerContainer.classList.add("ryne-toolkit-humanizer-button")
 
@@ -55,7 +55,14 @@ function setupHumanizerButton(node, text) {
 
     const humanizerButton = document.createElement('button')
     humanizerButton.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
-    humanizerButton.onclick = () => window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-extension=${text}`)
+    humanizerButton.onclick = () => {
+        copyButton.dispatchEvent(new Event('click', { bubbles: true }))
+        setTimeout(() => {
+            navigator.clipboard.readText().then(text => {
+                window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${text}`)
+            })
+        }, 100)
+    }
 
     humanizerContainer.appendChild(humanizerDiv)
     humanizerContainer.appendChild(humanizerButton)
@@ -68,9 +75,9 @@ function setupObserver() {
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-            Array.from(mutation.addedNodes).forEach(node => {
+            Array.from(mutation.addedNodes).forEach(async (node) => {
                 if (node.className.includes("chat-icons")) {
-                    setupHumanizerButton(node, "hello world")
+                    setupHumanizerButton(node, node.childNodes[3])
                 }
             })
         })
