@@ -30,6 +30,13 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 
 ![Highlight Options](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/highlight.png)
 
+### New Quick Actions
+- All new options in the Ryne chat page
+- The plus button quickly allows you to create a new chat without needing to open the history modal
+- The electricity bolt humanizer button opens the humanizer page with the AI's output already pasted in for you!
+
+![Highlight Options](https://raw.githubusercontent.com/bennnzo/ryne-delete-all-extention/main/readme-images/quick-actions.png)
+
 ### Code output bug fix (Before: top, After: bottom)
 - Ryne's code output has a bug where every line of code will be strung into one long line now it is fixed with the toolkit extension.
 
