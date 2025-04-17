@@ -130,6 +130,10 @@ function setupChatStyles() {
             max-width: 1000px;
             margin: 0 auto;
         }
+        
+        .chat-input-box > div:nth-of-type(1) > button, .chat-input-box + div > div > * {
+            border: 1px solid rgba(255, 255, 255, 0.08)
+        }
 
 
 
