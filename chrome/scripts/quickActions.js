@@ -59,7 +59,7 @@ function setupHumanizerButton(node, copyButton) {
         copyButton.dispatchEvent(new Event('click', { bubbles: true }))
         setTimeout(() => {
             navigator.clipboard.readText().then(text => {
-                window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${text}`)
+                window.open(`https://ryne.ai/tools/humanizer?ryne-toolkit-selection=${encodeURIComponent(text)}`)
             })
         }, 100)
     }
