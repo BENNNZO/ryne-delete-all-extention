@@ -12,6 +12,7 @@ This extention aims to add quality of life updates to Ryne. Anything from auto f
 ## Known Bugs
 - (not really a bug) I would like to make the highlight humanizer option automatically switch to an already opened humanizer tab if one is already present.
 - Using more than one LLM at a time seems to be a bit glitchy sometimes need to investigate (may not be my extensions fault).
+- Ryne uses next router (allegedly) which doesnt really load a new mage when for example going from the dashboard to the humanizer page. This cases the quick actions not to load. Should be a straighforward fix will work on it tomorrow im tired lol
 
 [Fixed in next release]
 - the bottom of the AI responses seems to barely overlap with the chat input box.
