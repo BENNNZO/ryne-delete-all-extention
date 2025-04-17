@@ -131,8 +131,9 @@ function setupChatStyles() {
             left: 50%;
             transform: translateX(-50%);
             bottom: 5px;
-            width: 75%;
-            max-width: 1000px
+            width: 98%;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .chat-input-box > div:nth-of-type(1) > button, .chat-input-box + div > div > * {
