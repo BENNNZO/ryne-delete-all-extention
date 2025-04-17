@@ -43,13 +43,19 @@ browser.tabs.onUpdated.addListener(async (tabId, info, tab) => {
         })
     }
 
-    if (tab.url.includes("https://ryne.ai/tools/humanizer") && info.status === "complete") {
-        browser.storage.sync.get(["highlightFunctions"]).then(res => {
-            if (res.highlightFunctions) {
+    if (tab.url.includes("https://ryne.ai/tools/ryne-chat") && info.status === "complete") {
+        browser.storage.sync.get(["quickActions"]).then(res => {
+            if (res.quickActions) {
                 browser.tabs.executeScript(tab.id, {
-                    file: "/scripts/highlightHumanize.js"
+                    file: "/scripts/quickActions.js"
                 })
             }
+        })
+    }
+
+    if (tab.url.includes("https://ryne.ai/tools/humanizer") && info.status === "complete") {
+        browser.tabs.executeScript(tab.id, {
+            file: "/scripts/highlightHumanize.js"
         })
     }
 
