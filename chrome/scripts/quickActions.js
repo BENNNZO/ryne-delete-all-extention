@@ -125,6 +125,26 @@ function main() {
 
         window.__quickActionsInitialized = true
 
+        
+        let lastURL = location.href
+
+        const observer = new MutationObserver(() => {
+            const url = location.href
+
+            if (url !== lastURL) {
+                lastURL = url
+
+                setupObserver()
+        
+                setupNewChatButton()
+        
+                setupNewChatButtonStyles()
+                setupHumanizerButtonStyles()
+            }
+        })
+        
+        observer.observe(document, { subtree: true, childList: true })
+
         setupObserver()
 
         setupNewChatButton()
