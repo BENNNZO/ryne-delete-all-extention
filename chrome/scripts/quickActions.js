@@ -125,7 +125,6 @@ function main() {
 
         window.__quickActionsInitialized = true
 
-        
         let lastURL = location.href
 
         const observer = new MutationObserver(() => {
@@ -133,24 +132,28 @@ function main() {
 
             if (url !== lastURL) {
                 lastURL = url
-
-                setupObserver()
-        
-                setupNewChatButton()
-        
-                setupNewChatButtonStyles()
-                setupHumanizerButtonStyles()
+                
+                if (!document.querySelector(".ryne-toolkit-new-chat-button")) {
+                    setupObserver()
+            
+                    setupNewChatButton()
+            
+                    setupNewChatButtonStyles()
+                    setupHumanizerButtonStyles()
+                }
             }
         })
         
         observer.observe(document, { subtree: true, childList: true })
 
-        setupObserver()
-
-        setupNewChatButton()
-
-        setupNewChatButtonStyles()
-        setupHumanizerButtonStyles()
+        if (!document.querySelector(".ryne-toolkit-new-chat-button")) {
+            setupObserver()
+    
+            setupNewChatButton()
+    
+            setupNewChatButtonStyles()
+            setupHumanizerButtonStyles()
+        }
     }
 }
 
