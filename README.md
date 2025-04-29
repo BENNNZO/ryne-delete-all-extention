@@ -1,5 +1,5 @@
 # Ryne Toolkit Extention
-This extention aims to add quality of life updates to Ryne. Anything from auto focusing on the text elements to re-styling the website. All of the settings are able to be toggled on and off easity by turning it off in the extention popup and refreshing the page
+Simply put this extension makes ryne better! This extention aims to add quality of life updates to Ryne. Anything from auto focusing on the text elements to re-styling the website. All of the settings are able to be toggled on and off easity by turning it off in the extention popup and refreshing the page
 
 ## Features
 - Auto place your cursor in the text area (works on both chat and humanizer pages)
